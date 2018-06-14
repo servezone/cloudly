@@ -1,6 +1,6 @@
 {
   "name": "cloudly",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "configure the cloud",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

@@ -1,0 +1,44 @@
+{
+  "name": "cloudly",
+  "version": "1.0.24",
+  "description": "configure the cloud",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "author": "Lossless GmbH",
+  "license": "MIT",
+  "bin": {
+    "cloudly": "./dist/cli.js"
+  },
+  "scripts": {
+    "test": "(npmts) && (node ./dist/cli.js -v)",
+    "start": "(node dist/cli.js)",
+    "docker": "docker build .",
+    "build": "echo \"Not needed for now\""
+  },
+  "devDependencies": {
+    "@gitzone/tsrun": "^1.0.5",
+    "@types/node": "^9.3.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "qenv": "^1.1.7",
+    "tapbundle": "^1.1.8"
+  },
+  "dependencies": {
+    "beautylog": "^6.1.10",
+    "cert": "^1.0.7",
+    "cflare": "^1.0.5",
+    "projectinfo": "^3.0.4",
+    "servezone": "^1.0.23",
+    "slackme": "^2.0.3",
+    "smartcli": "^2.0.12",
+    "smartexpress": "^1.0.21",
+    "smartq": "^1.1.6",
+    "taskbuffer": "^1.0.22",
+    "tsclass": "^1.0.20"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "private": true
+}

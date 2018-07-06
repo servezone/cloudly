@@ -16,24 +16,24 @@
     "build": "echo \"Not needed for now\""
   },
   "devDependencies": {
-    "@gitzone/tsrun": "^1.0.5",
-    "@types/node": "^9.3.0",
+    "@gitzone/tsrun": "^1.1.1",
+    "@types/node": "^10.5.2",
     "cz-conventional-changelog": "^2.1.0",
     "qenv": "^1.1.7",
-    "tapbundle": "^1.1.8"
+    "tapbundle": "^2.0.2"
   },
   "dependencies": {
-    "beautylog": "^6.1.10",
+    "@pushrocks/smartlog": "^6.1.10",
     "cert": "^1.0.7",
     "cflare": "^1.0.5",
     "projectinfo": "^3.0.4",
-    "servezone": "^1.0.23",
+    "@servezone/servezone": "^1.0.23",
     "slackme": "^2.0.3",
-    "smartcli": "^2.0.12",
+    "@pushrocks/smartcli": "^2.0.12",
     "smartexpress": "^1.0.21",
-    "smartq": "^1.1.6",
+    "@pushrocks/smartpromise": "^1.1.6",
     "taskbuffer": "^1.0.22",
-    "tsclass": "^1.0.20"
+    "@tsclass/tsclass": "^1.0.20"
   },
   "config": {
     "commitizen": {

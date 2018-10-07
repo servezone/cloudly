@@ -1,5 +1,5 @@
 import { expect, tap } from '@pushrocks/tapbundle';
-import { Qenv } from 'qenv';
+import { Qenv } from '@pushrocks/qenv';
 let testQenv = new Qenv('./', './.nogit/');
 
 import * as cloudly from '../ts/index';

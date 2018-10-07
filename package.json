@@ -20,19 +20,20 @@
     "@gitzone/tsbuild": "^2.0.22",
     "@gitzone/tsrun": "^1.1.12",
     "@gitzone/tstest": "^1.0.15",
+    "@pushrocks/qenv": "^2.0.2",
     "@pushrocks/tapbundle": "^3.0.7",
-    "@types/node": "^10.11.4",
-    "qenv": "^1.1.7"
+    "@types/node": "^10.11.4"
   },
   "dependencies": {
     "@mojoio/cloudflare": "^2.0.0",
-    "@mojoio/slack": "^2.0.5",
+    "@mojoio/slack": "^2.0.6",
     "@pushrocks/projectinfo": "^4.0.2",
     "@pushrocks/smartacme": "^2.0.2",
     "@pushrocks/smartcli": "^3.0.6",
     "@pushrocks/smartexpress": "^2.0.2",
     "@pushrocks/smartlog": "^2.0.1",
     "@pushrocks/smartpromise": "^2.0.5",
+    "@pushrocks/smartrequest": "^1.1.14",
     "@pushrocks/taskbuffer": "^2.0.5",
     "@servezone/servezone": "^1.0.34",
     "@tsclass/tsclass": "^2.0.0"

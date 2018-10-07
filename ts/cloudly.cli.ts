@@ -3,13 +3,13 @@ import { Cloudly } from './cloudly.classes.cloudly';
 import { CloudlyConfig } from './cloudly.classes.config';
 import { cloudlySlack } from './cloudly.monitor';
 
-import { Smartcli } from 'smartcli';
+import { Smartcli } from '@pushrocks/smartcli';
 
 export let cloudlyCli = new plugins.smartcli.Smartcli();
 export let mainCloudlyInstance = new Cloudly();
 cloudlyCli
   .standardTask()
-  .then(async argvArg => {
+  .subscribe(async argvArg => {
     if (process.env.TESTING_CLOUDLY) {
       return;
     }
@@ -25,10 +25,9 @@ cloudlyCli
     let cloudlyConfig = new CloudlyConfig();
     cloudlyConfig.init(argvArg);
     await mainCloudlyInstance.start(cloudlyConfig);
-  })
-  .catch(err => {
+  }, err => {
     console.log(err);
-  });
+  })
 
 cloudlyCli.addVersion('any version');
 cloudlyCli.startParse();

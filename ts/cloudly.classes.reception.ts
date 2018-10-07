@@ -1,6 +1,6 @@
 import * as plugins from './cloudly.plugins';
 import { Cloudly } from './cloudly.classes.cloudly';
-import { Server } from 'smartexpress';
+import { Server } from '@pushrocks/smartexpress';
 import { request } from 'smartrequest/dist/smartrequest.request';
 
 export class CloudlyReception {

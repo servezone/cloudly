@@ -15,6 +15,9 @@ export class CloudlyConfig {
    */
   private readFromCli(argvArg) {}
 
+  /**
+   * tries to read config from environment
+   */
   private readFromEnv() {}
 
   /**

@@ -2,10 +2,10 @@ import * as plugins from './cloudly.plugins';
 import { CloudlyConfig } from './cloudly.classes.config';
 
 // servezone imports
-import { SzApp, SzCluster, SzManager, SzService, SzSubService } from 'servezone';
+import { SzApp, SzCluster, SzService, SzSubService } from '@servezone/servezone';
 
 // interfaces
-import {} from 'tsclass';
+import {} from '@tsclass/tsclass';
 import { cloudlyCli } from './cloudly.cli';
 import { CloudlyReception } from './cloudly.classes.reception';
 

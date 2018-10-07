@@ -1,6 +1,7 @@
 {
-  "name": "cloudly",
+  "name": "@servezone/cloudly",
   "version": "1.0.26",
+  "private": false,
   "description": "configure the cloud",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -10,35 +11,30 @@
     "cloudly": "./dist/cli.js"
   },
   "scripts": {
-    "test": "(npmts) && (node ./dist/cli.js -v)",
+    "test": "tstest test/",
     "start": "(node dist/cli.js)",
     "docker": "docker build .",
     "build": "echo \"Not needed for now\""
   },
   "devDependencies": {
-    "@gitzone/tsrun": "^1.1.1",
-    "@types/node": "^10.5.2",
-    "cz-conventional-changelog": "^2.1.0",
-    "qenv": "^1.1.7",
-    "tapbundle": "^2.0.2"
+    "@gitzone/tsbuild": "^2.0.22",
+    "@gitzone/tsrun": "^1.1.12",
+    "@gitzone/tstest": "^1.0.15",
+    "@pushrocks/tapbundle": "^3.0.7",
+    "@types/node": "^10.11.4",
+    "qenv": "^1.1.7"
   },
   "dependencies": {
-    "@pushrocks/smartlog": "^6.1.10",
-    "cert": "^1.0.7",
-    "cflare": "^1.0.5",
-    "projectinfo": "^3.0.4",
-    "@servezone/servezone": "^1.0.23",
-    "slackme": "^2.0.3",
-    "@pushrocks/smartcli": "^2.0.12",
-    "smartexpress": "^1.0.21",
-    "@pushrocks/smartpromise": "^1.1.6",
-    "taskbuffer": "^1.0.22",
-    "@tsclass/tsclass": "^1.0.20"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "private": true
+    "@mojoio/cloudflare": "^2.0.0",
+    "@mojoio/slack": "^2.0.5",
+    "@pushrocks/projectinfo": "^4.0.2",
+    "@pushrocks/smartacme": "^2.0.2",
+    "@pushrocks/smartcli": "^3.0.6",
+    "@pushrocks/smartexpress": "^2.0.2",
+    "@pushrocks/smartlog": "^2.0.1",
+    "@pushrocks/smartpromise": "^2.0.5",
+    "@pushrocks/taskbuffer": "^2.0.5",
+    "@servezone/servezone": "^1.0.34",
+    "@tsclass/tsclass": "^2.0.0"
+  }
 }

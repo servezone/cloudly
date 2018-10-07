@@ -1,10 +1,10 @@
-import { expect, tap } from 'tapbundle';
+import { expect, tap } from '@pushrocks/tapbundle';
 import { Qenv } from 'qenv';
 let testQenv = new Qenv('./', './.nogit/');
 
 import * as cloudly from '../ts/index';
 
-import { SzCluster } from 'servezone';
+import { SzCluster } from '@servezone/servezone';
 
 process.env.TESTING_CLOUDLY = 'true';
 

@@ -27,6 +27,7 @@
   "dependencies": {
     "@mojoio/cloudflare": "^2.0.0",
     "@mojoio/slack": "^2.0.6",
+    "@pushrocks/elasticlog": "^1.0.11",
     "@pushrocks/projectinfo": "^4.0.2",
     "@pushrocks/smartacme": "^2.0.2",
     "@pushrocks/smartcli": "^3.0.6",

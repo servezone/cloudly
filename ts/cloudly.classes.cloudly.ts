@@ -20,6 +20,10 @@ export class Cloudly {
     this.ready = this.readyDeferred.promise;
   }
 
+  /**
+   * 
+   * @param configArg 
+   */
   async start(configArg: CloudlyConfig) {
     this.config = configArg;
     await this.initServeZone();
@@ -27,6 +31,9 @@ export class Cloudly {
     await this.reception.init();
   }
 
+  /**
+   * stop the reception instance
+   */
   async stop() {
     await this.reception.stop();
   }

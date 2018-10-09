@@ -2,6 +2,9 @@ import * as plugins from './cloudly.plugins';
 
 export interface ICloudlyConfig {}
 
+/**
+ * the main cloudly config
+ */
 export class CloudlyConfig {
   config: ICloudlyConfig = {};
   init(argvArg: any) {

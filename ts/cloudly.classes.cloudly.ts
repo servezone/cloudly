@@ -21,8 +21,8 @@ export class Cloudly {
   }
 
   /**
-   * 
-   * @param configArg 
+   *
+   * @param configArg
    */
   async start(configArg: CloudlyConfig) {
     this.config = configArg;

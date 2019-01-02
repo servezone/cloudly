@@ -33,7 +33,7 @@ export class CloudlyReception {
   /**
    * authenticate a request
    */
-  authenticateRequest
+  authenticateRequest;
 
   /**
    * init the reception instance

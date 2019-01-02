@@ -1,4 +1,9 @@
-export type TSupportedCloudProvider = "DigitalOcean" | "Hetzner" | "Scaleway" | "Exoscale" | "Vultr"
+export type TSupportedCloudProvider =
+  | 'DigitalOcean'
+  | 'Hetzner'
+  | 'Scaleway'
+  | 'Exoscale'
+  | 'Vultr';
 
 /**
  * This class takes care of onboarding new clusters and droplets to the servezone
@@ -12,8 +17,8 @@ export class OnBoarder {
    * onboard a new cluster from a cloud provider
    */
   createNewCluster(optionsArg: {
-    cloudProvider: TSupportedCloudProvider
-    providerApiKey: string
+    cloudProvider: TSupportedCloudProvider;
+    providerApiKey: string;
   }) {}
 
   /**

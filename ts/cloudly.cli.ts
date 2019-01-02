@@ -7,9 +7,8 @@ import { Smartcli } from '@pushrocks/smartcli';
 
 export let cloudlyCli = new plugins.smartcli.Smartcli();
 export let mainCloudlyInstance = new Cloudly();
-cloudlyCli
-  .standardTask()
-  .subscribe(async argvArg => {
+cloudlyCli.standardTask().subscribe(
+  async argvArg => {
     if (process.env.TESTING_CLOUDLY) {
       return;
     }
@@ -25,9 +24,11 @@ cloudlyCli
     let cloudlyConfig = new CloudlyConfig();
     cloudlyConfig.init(argvArg);
     await mainCloudlyInstance.start(cloudlyConfig);
-  }, err => {
+  },
+  err => {
     console.log(err);
-  })
+  }
+);
 
 cloudlyCli.addVersion('any version');
 cloudlyCli.startParse();

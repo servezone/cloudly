@@ -7,4 +7,4 @@ import * as smartlog from '@pushrocks/smartlog';
 import * as smartq from '@pushrocks/smartpromise';
 import * as smartrequest from '@pushrocks/smartrequest';
 
-export { cflare, servezone, slackme, smartcli, smartexpress, smartlog, smartq, smartrequest};
+export { cflare, servezone, slackme, smartcli, smartexpress, smartlog, smartq, smartrequest };

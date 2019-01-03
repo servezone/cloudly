@@ -24,7 +24,7 @@ export class Cloudly {
   }
 
   /**
-   * starts the cloudly instance and 
+   * starts the cloudly instance and
    * @param configArg
    */
   async start() {

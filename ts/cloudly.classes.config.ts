@@ -24,6 +24,6 @@ export class CloudlyConfig implements ICloudlyConfig {
   constructor(configArg: ICloudlyConfig) {
     Reflect.ownKeys(configArg).forEach(keyArg => {
       this[keyArg] = configArg[keyArg];
-    })
+    });
   }
 }

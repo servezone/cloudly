@@ -1,30 +1,15 @@
 import * as plugins from './cloudly.plugins';
 
-export interface ICloudlyConfig {}
+export interface ICloudlyConfig {
+  splashPageUrl?: string;
+}
 
 /**
  * the main cloudly config
  */
 export class CloudlyConfig {
   config: ICloudlyConfig = {};
-  init(argvArg: any) {
-    this.readFromFile();
-    this.readFromEnv();
-    this.readFromCli(argvArg);
+  constructor(configArg: ICloudlyConfig) {
+     
   }
-
-  /**
-   * tries to read config from cli input
-   */
-  private readFromCli(argvArg) {}
-
-  /**
-   * tries to read config from environment
-   */
-  private readFromEnv() {}
-
-  /**
-   * tries to read config from file
-   */
-  private readFromFile() {}
 }

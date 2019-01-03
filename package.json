@@ -7,9 +7,6 @@
   "typings": "dist/index.d.ts",
   "author": "Lossless GmbH",
   "license": "MIT",
-  "bin": {
-    "cloudly": "./cli.js"
-  },
   "scripts": {
     "test": "tstest test/",
     "start": "(node dist/cli.js)",
@@ -22,16 +19,15 @@
     "@gitzone/tstest": "^1.0.18",
     "@pushrocks/qenv": "^2.0.2",
     "@pushrocks/tapbundle": "^3.0.7",
-    "@types/node": "^10.12.15"
+    "@types/node": "^10.12.18"
   },
   "dependencies": {
     "@mojoio/cloudflare": "^2.0.0",
     "@mojoio/slack": "^2.0.6",
-    "@pushrocks/elasticlog": "^1.0.16",
     "@pushrocks/projectinfo": "^4.0.2",
     "@pushrocks/smartacme": "^2.0.2",
     "@pushrocks/smartcli": "^3.0.7",
-    "@pushrocks/smartexpress": "^2.0.17",
+    "@pushrocks/smartexpress": "^3.0.0",
     "@pushrocks/smartlog": "^2.0.9",
     "@pushrocks/smartpromise": "^2.0.5",
     "@pushrocks/smartrequest": "^1.1.14",

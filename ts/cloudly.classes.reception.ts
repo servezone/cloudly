@@ -1,6 +1,5 @@
 import * as plugins from './cloudly.plugins';
 import { Cloudly } from './cloudly.classes.cloudly';
-import { Server } from '@pushrocks/smartexpress';
 import { request } from '@pushrocks/smartrequest';
 
 /**
@@ -18,7 +17,10 @@ export class CloudlyReception {
   smartexpressServer = new plugins.smartexpress.Server({
     cors: true,
     forceSsl: true,
-    defaultAnswer: `cloudly version `
+    defaultAnswer: async () => {
+      const response = await plugins.smartrequest.request(this.cloudlyRef.config.config.splashPageUrl);
+      return response.body;
+    }
   });
 
   constructor(cloudlyArg: Cloudly) {

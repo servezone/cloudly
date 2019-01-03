@@ -1,34 +1,34 @@
 import * as plugins from './cloudly.plugins';
-import { CloudlyConfig } from './cloudly.classes.config';
+import { CloudlyConfig, ICloudlyConfig } from './cloudly.classes.config';
 
 // servezone imports
 import { SzApp, SzCluster, SzService, SzSubService } from '@servezone/servezone';
 
 // interfaces
 import {} from '@tsclass/tsclass';
-import { cloudlyCli } from './cloudly.cli';
 import { CloudlyReception } from './cloudly.classes.reception';
 
 export class Cloudly {
   config: CloudlyConfig;
-  reception = new CloudlyReception(this);
+  reception: CloudlyReception;
   szClusterRef: plugins.servezone.SzCluster;
   ready: Promise<any>;
   private readyDeferred = new plugins.smartq.Deferred();
 
-  constructor() {
+  constructor(cloudlyConfigArg: ICloudlyConfig) {
+    this.config = new CloudlyConfig(cloudlyConfigArg)
+    this.reception = new CloudlyReception(this);
     this.ready = this.readyDeferred.promise;
   }
 
   /**
-   *
+   * starts the cloudly instance and 
    * @param configArg
    */
-  async start(configArg: CloudlyConfig) {
-    this.config = configArg;
+  async start() {
     await this.initServeZone();
-    this.readyDeferred.resolve();
     await this.reception.init();
+    this.readyDeferred.resolve();
   }
 
   /**

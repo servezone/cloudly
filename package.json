@@ -17,7 +17,9 @@
     "@gitzone/tstest": "^1.0.18",
     "@pushrocks/qenv": "^2.0.2",
     "@pushrocks/tapbundle": "^3.0.7",
-    "@types/node": "^10.12.18"
+    "@types/node": "^10.12.18",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0"
   },
   "dependencies": {
     "@mojoio/cloudflare": "^2.0.0",

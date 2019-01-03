@@ -9,14 +9,16 @@ import {} from '@tsclass/tsclass';
 import { CloudlyReception } from './cloudly.classes.reception';
 
 export class Cloudly {
-  config: CloudlyConfig;
-  reception: CloudlyReception;
-  szClusterRef: plugins.servezone.SzCluster;
-  ready: Promise<any>;
+  public config: CloudlyConfig;
+  public logger: plugins.smartlog.Smartlog;
+  public reception: CloudlyReception;
+  public szClusterRef: plugins.servezone.SzCluster;
+  public ready: Promise<any>;
   private readyDeferred = new plugins.smartq.Deferred();
 
   constructor(cloudlyConfigArg: ICloudlyConfig) {
-    this.config = new CloudlyConfig(cloudlyConfigArg)
+    this.config = new CloudlyConfig(cloudlyConfigArg);
+    this.logger = this.config.logger || plugins.smartlog.defaultLogger;
     this.reception = new CloudlyReception(this);
     this.ready = this.readyDeferred.promise;
   }

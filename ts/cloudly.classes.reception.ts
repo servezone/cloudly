@@ -18,7 +18,7 @@ export class CloudlyReception {
     cors: true,
     forceSsl: true,
     defaultAnswer: async () => {
-      const response = await plugins.smartrequest.request(this.cloudlyRef.config.config.splashPageUrl);
+      const response = await plugins.smartrequest.request(this.cloudlyRef.config.splashPageUrl);
       return response.body;
     }
   });

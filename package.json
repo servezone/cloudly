@@ -8,10 +8,8 @@
   "author": "Lossless GmbH",
   "license": "MIT",
   "scripts": {
-    "test": "tstest test/",
-    "start": "(node dist/cli.js)",
-    "docker": "docker build .",
-    "build": "echo \"Not needed for now\""
+    "test": "(tstest test/)",
+    "build": "(tsbuild)"
   },
   "devDependencies": {
     "@gitzone/tsbuild": "^2.1.4",

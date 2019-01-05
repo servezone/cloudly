@@ -1,6 +1,6 @@
 {
   "name": "@servezone/cloudly",
-  "version": "1.0.43",
+  "version": "1.0.44",
   "private": false,
   "description": "configure the cloud",
   "main": "dist/index.js",

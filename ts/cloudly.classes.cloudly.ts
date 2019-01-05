@@ -44,7 +44,7 @@ export class Cloudly {
    * starts the cloudly instance and
    * @param configArg
    */
-  async start() {
+  public async start() {
     await this.initServeZone();
     await this.reception.init();
     this.readyDeferred.resolve();
@@ -53,7 +53,7 @@ export class Cloudly {
   /**
    * stop the reception instance
    */
-  async stop() {
+  public async stop() {
     await this.reception.stop();
   }
 

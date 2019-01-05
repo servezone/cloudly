@@ -1,5 +1,7 @@
 import * as plugins from './cloudly.plugins';
 
-export class LetsEncrypt {
-  smartacme = new plugins
+export class CloudlyLetsEncrypt {
+  public smartacme = new plugins.smartacme.SmartAcme();
+
+  async getCertificateForDomain () {};
 }

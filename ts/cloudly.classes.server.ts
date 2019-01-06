@@ -16,7 +16,7 @@ export class CloudlyServer {
    */
   smartexpressServer = new plugins.smartexpress.Server({
     cors: true,
-    forceSsl: true,
+    forceSsl: false,
     defaultAnswer: async () => {
       const response = await plugins.smartrequest.request(this.cloudlyRef.config.splashPageUrl, {
         method: 'GET'

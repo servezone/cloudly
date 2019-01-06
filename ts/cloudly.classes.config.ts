@@ -22,7 +22,7 @@ export class CloudlyConfig implements ICloudlyConfig {
   public gitlabUser: string;
   public gitlabToken: string;
   constructor(configArg: ICloudlyConfig) {
-    Reflect.ownKeys(configArg).forEach(keyArg => {
+    Object.keys(configArg).forEach(keyArg => {
       this[keyArg] = configArg[keyArg];
     });
   }

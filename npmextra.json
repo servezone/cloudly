@@ -1,6 +1,7 @@
 {
   "npmci": {
     "npmGlobalTools": [],
-    "npmAccessLevel": "public"
+    "npmAccessLevel": "public",
+    "npmRegistryUrl": "registry.npmjs.org"
   }
 }

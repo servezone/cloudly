@@ -6,7 +6,7 @@ import { SzApp, SzCluster, SzService, SzSubService } from '@servezone/servezone'
 
 // interfaces
 import {} from '@tsclass/tsclass';
-import { CloudlyReception } from './cloudly.classes.reception';
+import { CloudlyServer } from './cloudly.classes.server';
 import { CloudlyTaskmanager } from './cloudly.classes.taskmanager';
 import { CloudlyUniversemanager } from './cloudly.classes.universemanager';
 
@@ -19,7 +19,7 @@ import { CloudlyLetsEncrypt } from './cloudly.classes.ext.letsencrypt';
 export class Cloudly {
   public config: CloudlyConfig;
   public logger: plugins.smartlog.Smartlog;
-  public reception: CloudlyReception;
+  public server: CloudlyServer;
   public taskmanager: CloudlyTaskmanager;
   public universemanager: CloudlyUniversemanager;
   public szClusterRef: plugins.servezone.SzCluster;
@@ -36,7 +36,7 @@ export class Cloudly {
   constructor(cloudlyConfigArg: ICloudlyConfig) {
     this.config = new CloudlyConfig(cloudlyConfigArg);
     this.logger = this.config.logger || plugins.smartlog.defaultLogger;
-    this.reception = new CloudlyReception(this);
+    this.server = new CloudlyServer(this);
     this.ready = this.readyDeferred.promise;
   }
 
@@ -46,7 +46,7 @@ export class Cloudly {
    */
   public async start() {
     await this.initServeZone();
-    await this.reception.init();
+    await this.server.init();
     this.readyDeferred.resolve();
   }
 
@@ -54,7 +54,7 @@ export class Cloudly {
    * stop the reception instance
    */
   public async stop() {
-    await this.reception.stop();
+    await this.server.stop();
   }
 
   /**

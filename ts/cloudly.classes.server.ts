@@ -5,7 +5,7 @@ import { request } from '@pushrocks/smartrequest';
 /**
  * handles incoming requests from CI to deploy new versions of apps
  */
-export class CloudlyReception {
+export class CloudlyServer {
   /**
    * a reference to the cloudly instance
    */
@@ -18,17 +18,22 @@ export class CloudlyReception {
     cors: true,
     forceSsl: true,
     defaultAnswer: async () => {
-      const response = await plugins.smartrequest.request(this.cloudlyRef.config.splashPageUrl);
+      const response = await plugins.smartrequest.request(this.cloudlyRef.config.splashPageUrl, {
+        method: 'GET'
+      });
       return response.body;
     }
   });
 
   constructor(cloudlyArg: Cloudly) {
     this.cloudlyRef = cloudlyArg;
+
+
     const appHandler = new plugins.smartexpress.Handler('POST', requestArg => {
-      let requestData = requestArg.body;
+      const requestData = requestArg.body;
       this.cloudlyRef.szClusterRef.szManager.addApp(requestData);
     });
+
     this.smartexpressServer.addRoute('/app', appHandler);
   }
 

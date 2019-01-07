@@ -12,12 +12,14 @@ let testCloudlyConfig: cloudly.CloudlyConfig;
 let testCloudly: cloudly.Cloudly;
 
 tap.test('first test', async () => {
-  testCloudly = new cloudly.Cloudly({});
+  testCloudly = new cloudly.Cloudly({
+    cfEmail: testQenv.getEnvVarOnDemand('CF_EMAIL'),
+    cfToken: testQenv.getEnvVarOnDemand('CF_TOKEN'),
+    letsEncryptEmail: testQenv.getEnvVarOnDemand('LETSENCRYPT_EMAIL'),
+    publicUrl: testQenv.getEnvVarOnDemand('PUBLIC_URL'),
+    splashPageUrl: testQenv.getEnvVarOnDemand('SPLASHPAGE_URL'),
+  });
   expect(testCloudly).to.be.instanceof(cloudly.Cloudly);
-});
-
-tap.test('should create a new CloudlyConfig', async () => {
-  testCloudlyConfig = new cloudly.CloudlyConfig({});
 });
 
 tap.test('should init servezone', async () => {

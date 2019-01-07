@@ -38,6 +38,11 @@ export class Cloudly {
     this.logger = this.config.logger || plugins.smartlog.defaultLogger;
     this.server = new CloudlyServer(this);
     this.ready = this.readyDeferred.promise;
+
+    // services
+    this.cloudflare = new CloudlyCloudflare(this);
+    this.letsencrypt = new CloudlyLetsEncrypt(this);
+    this.gitlab = new CloudlyGitlab(this);
   }
 
   /**
@@ -45,6 +50,8 @@ export class Cloudly {
    * @param configArg
    */
   public async start() {
+    await this.cloudflare.init();
+    await this.letsencrypt.init();
     await this.initServeZone();
     await this.server.init();
     this.readyDeferred.resolve();

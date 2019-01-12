@@ -1,6 +1,9 @@
 import * as plugins from './cloudly.plugins';
 import { Cloudly } from './cloudly.classes.cloudly';
 
+/**
+ * the portion of Cloudflare responsible 
+ */
 export class CloudlyCloudflare {
   private cloudlyRef: Cloudly;
   public cloudflare: plugins.cloudflare.CloudflareAccount;
@@ -10,6 +13,7 @@ export class CloudlyCloudflare {
     this.cloudflare = new plugins.cloudflare.CloudflareAccount();
   }
 
+  // init the instance
   async init() {
     this.cloudflare.auth({
       email: this.cloudlyRef.config.cfEmail,

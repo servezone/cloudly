@@ -16,6 +16,14 @@ import { CloudlyDigitalOcean } from './cloudly.classes.ext.digitalocean';
 import { CloudlyGitlab } from './cloudly.classes.ext.gitlab';
 import { CloudlyLetsEncrypt } from './cloudly.classes.ext.letsencrypt';
 
+/**
+ * Cloudly class can be used to instantiate a cloudly server.
+ * It is implemented as class in order to make it easier ro write node services that are more adjusted to invidual services
+ * 
+ * ```ts
+ * const mycloudly = new Cloudly ({...})
+ * ```
+ */
 export class Cloudly {
   public config: CloudlyConfig;
   public logger: plugins.smartlog.Smartlog;

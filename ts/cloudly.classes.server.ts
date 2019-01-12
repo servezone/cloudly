@@ -9,12 +9,12 @@ export class CloudlyServer {
   /**
    * a reference to the cloudly instance
    */
-  cloudlyRef: Cloudly;
+  private cloudlyRef: Cloudly;
 
   /**
    * the smartexpress server handling the actual requests
    */
-  smartexpressServer = new plugins.smartexpress.Server({
+  private smartexpressServer = new plugins.smartexpress.Server({
     cors: true,
     forceSsl: false,
     defaultAnswer: async () => {
@@ -28,7 +28,6 @@ export class CloudlyServer {
   constructor(cloudlyArg: Cloudly) {
     this.cloudlyRef = cloudlyArg;
 
-
     const appHandler = new plugins.smartexpress.Handler('POST', requestArg => {
       const requestData = requestArg.body;
       this.cloudlyRef.szClusterRef.szManager.addApp(requestData);
@@ -40,19 +39,25 @@ export class CloudlyServer {
   /**
    * authenticate a request
    */
-  authenticateRequest;
+  private async authenticateRequest (req, res) {
+
+  };
+
+  // =========
+  // LIFECYCLE
+  // =========
 
   /**
    * init the reception instance
    */
-  async init() {
+  public async init() {
     await this.smartexpressServer.start(process.env.PORT || 5000);
   }
 
   /**
    * stop the reception instance
    */
-  async stop() {
+  public async stop() {
     await this.smartexpressServer.stop();
   }
 }

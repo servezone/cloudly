@@ -1,14 +1,14 @@
 import * as plugins from './cloudly.plugins';
 
 export interface ICloudlyConfig {
-  cfEmail?: string;
-  cfToken?: string;
+  cfEmail: string;
+  cfToken: string;
   gitlabUser?: string;
   gitlabToken?: string;
-  letsEncryptEmail?: string;
+  letsEncryptEmail: string;
   letsEncryptPrivateKey?: string;
   logger?: plugins.smartlog.Smartlog;
-  mongodbConnectionUrl?: string;
+  mongoDescriptor: plugins.smartdata.IMongoDescriptor;
   publicUrl: string;
   splashPageUrl?: string;
 }
@@ -24,7 +24,7 @@ export class CloudlyConfig implements ICloudlyConfig {
   public letsEncryptEmail: string;
   public letsEncryptPrivateKey: string;
   public logger: plugins.smartlog.Smartlog;
-  public mongodbConnectionUrl: string;
+  public mongoDescriptor: plugins.smartdata.IMongoDescriptor;
   public publicUrl: string;
   public splashPageUrl: string;
   constructor(configArg: ICloudlyConfig) {

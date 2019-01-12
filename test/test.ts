@@ -18,6 +18,11 @@ tap.test('first test', async () => {
     letsEncryptEmail: testQenv.getEnvVarOnDemand('LETSENCRYPT_EMAIL'),
     publicUrl: testQenv.getEnvVarOnDemand('PUBLIC_URL'),
     splashPageUrl: testQenv.getEnvVarOnDemand('SPLASHPAGE_URL'),
+    mongoDescriptor: {
+      mongoDbName: testQenv.getEnvVarOnDemand('MONGODB_DATABASE'),
+      mongoDbPass: testQenv.getEnvVarOnDemand('MONGODB_PASSWORD'),
+      mongoDbUrl: testQenv.getEnvVarOnDemand('MONGODB_URL'),
+    }
   });
   expect(testCloudly).to.be.instanceof(cloudly.Cloudly);
 });

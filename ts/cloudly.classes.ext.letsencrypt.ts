@@ -2,23 +2,12 @@ import * as plugins from './cloudly.plugins';
 import { Cloudly } from './cloudly.classes.cloudly';
 
 export class CloudlyLetsEncrypt {
-  cloudlyRef: Cloudly;
+  private cloudlyRef: Cloudly;
+  private smartacme: plugins.smartacme.SmartAcme;
 
   constructor(cloudlyArg: Cloudly) {
     this.cloudlyRef = cloudlyArg;
-  }
-
-  private smartacme = new plugins.smartacme.SmartAcme();
-
-  public async getCertificateForDomain (domainName: string) {
-    await this.smartacme.getCertificateForDomain(domainName);
-  };
-
-  /**
-   * inits letsencrypt
-   */
-  public async init () {
-    await this.smartacme.init({
+    this.smartacme = new plugins.smartacme.SmartAcme({
       accountEmail: this.cloudlyRef.config.letsEncryptEmail,
       accountPrivateKey: this.cloudlyRef.config.letsEncryptPrivateKey,
       setChallenge: async (dnsDomainName: string, keyAuthorization: string) => {
@@ -30,8 +19,23 @@ export class CloudlyLetsEncrypt {
       removeChallenge: async (dnsDomainName: string) => {
         await this.cloudlyRef.cloudflare.cloudflare.removeRecord(dnsDomainName, 'TXT');
         console.log('successfully removed dnsDomainName');
-      }
+      },
+      mongoDescriptor: this.cloudlyRef.config.mongoDescriptor,
+      validateRemoteRequest: async () => true,
     });
+  }
+
+  
+
+  public async getCertificateForDomain (domainName: string) {
+    await this.smartacme.getCertificateForDomain(domainName);
+  };
+
+  /**
+   * inits letsencrypt
+   */
+  public async init () {
+    await this.smartacme.init();
     await this.getCertificateForDomain(this.cloudlyRef.config.publicUrl);
   }
 }

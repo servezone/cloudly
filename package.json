@@ -25,7 +25,7 @@
     "@mojoio/cloudflare": "^2.0.0",
     "@mojoio/slack": "^2.0.6",
     "@pushrocks/projectinfo": "^4.0.2",
-    "@pushrocks/smartacme": "^2.0.21",
+    "@pushrocks/smartacme": "^2.0.22",
     "@pushrocks/smartcli": "^3.0.7",
     "@pushrocks/smartdata": "^3.1.13",
     "@pushrocks/smartdelay": "^2.0.2",

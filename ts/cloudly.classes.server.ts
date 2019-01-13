@@ -89,7 +89,7 @@ export class CloudlyServer {
       })
     );
 
-    await this.smartexpressServer.start(process.env.PORT || 5000);
+    await this.smartexpressServer.start();
   }
 
   /**

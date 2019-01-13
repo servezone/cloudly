@@ -52,7 +52,7 @@ export class CloudlyServer {
         });
         return response.body;
       },
-      port: 5000,
+      port: this.cloudlyRef.config.publicPort,
       privateKey: sslCert.privateKey,
       publicKey: sslCert.publicKey
     });

@@ -17,6 +17,7 @@ tap.test('first test', async () => {
     cfToken: testQenv.getEnvVarOnDemand('CF_TOKEN'),
     letsEncryptEmail: testQenv.getEnvVarOnDemand('LETSENCRYPT_EMAIL'),
     publicUrl: testQenv.getEnvVarOnDemand('PUBLIC_URL'),
+    publicPort: testQenv.getEnvVarOnDemand('PUBLIC_PORT'),
     splashPageUrl: testQenv.getEnvVarOnDemand('SPLASHPAGE_URL'),
     mongoDescriptor: {
       mongoDbName: testQenv.getEnvVarOnDemand('MONGODB_DATABASE'),

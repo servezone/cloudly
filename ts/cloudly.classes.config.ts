@@ -11,6 +11,7 @@ export interface ICloudlyConfig {
   logger?: plugins.smartlog.Smartlog;
   mongoDescriptor: plugins.smartdata.IMongoDescriptor;
   publicUrl: string;
+  publicPort: string;
   splashPageUrl?: string;
 }
 
@@ -28,6 +29,7 @@ export class CloudlyConfig implements ICloudlyConfig {
   public logger: plugins.smartlog.Smartlog;
   public mongoDescriptor: plugins.smartdata.IMongoDescriptor;
   public publicUrl: string;
+  public publicPort: string;
   public splashPageUrl: string;
   constructor(configArg: ICloudlyConfig) {
     Object.keys(configArg).forEach(keyArg => {

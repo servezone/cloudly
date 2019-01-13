@@ -37,5 +37,10 @@ export class CloudlyConfig implements ICloudlyConfig {
     Object.keys(configArg).forEach(keyArg => {
       this[keyArg] = configArg[keyArg];
     });
+
+    if (!this.logger) {
+      this.logger = plugins.smartlog.defaultLogger;
+      plugins.smartlog.defaultLogger.enableConsole();
+    }
   }
 }

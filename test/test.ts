@@ -8,13 +8,13 @@ import { SzCluster } from '@servezone/servezone';
 
 process.env.TESTING_CLOUDLY = 'true';
 
-let testCloudlyConfig: cloudly.CloudlyConfig;
 let testCloudly: cloudly.Cloudly;
 
 tap.test('first test', async () => {
   testCloudly = new cloudly.Cloudly({
     cfEmail: testQenv.getEnvVarOnDemand('CF_EMAIL'),
     cfToken: testQenv.getEnvVarOnDemand('CF_TOKEN'),
+    environment: 'integration',
     letsEncryptEmail: testQenv.getEnvVarOnDemand('LETSENCRYPT_EMAIL'),
     publicUrl: testQenv.getEnvVarOnDemand('PUBLIC_URL'),
     publicPort: testQenv.getEnvVarOnDemand('PUBLIC_PORT'),

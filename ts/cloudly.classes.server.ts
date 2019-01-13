@@ -53,12 +53,18 @@ export class CloudlyServer {
   
     });
 
-    const appHandler = new plugins.smartexpress.Handler('POST', requestArg => {
-      const requestData = requestArg.body;
+    // approute
+    this.smartexpressServer.addRoute('/app', new plugins.smartexpress.Handler('POST', (req, res) => {
+      const requestData = req.body;
       this.cloudlyRef.szClusterRef.szManager.addApp(requestData);
-    });
+    }));
 
-    this.smartexpressServer.addRoute('/app', appHandler);
+    // certroute
+    this.smartexpressServer.addRoute('/cert', new plugins.smartexpress.Handler('POST', (req, res) => {
+      
+    }));
+
+    
     await this.smartexpressServer.start(process.env.PORT || 5000);
   }
 

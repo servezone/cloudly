@@ -57,7 +57,7 @@ export class Cloudly {
    * starts the cloudly instance and
    * @param configArg
    */
-  public async start() {
+  public async init() {
     await this.cloudflare.init();
     await this.letsencrypt.init();
     await this.initServeZone();
@@ -69,6 +69,7 @@ export class Cloudly {
    * stop the reception instance
    */
   public async stop() {
+    await this.letsencrypt.stop();
     await this.server.stop();
   }
 

@@ -28,7 +28,7 @@ tap.test('first test', async () => {
 });
 
 tap.test('should init servezone', async () => {
-  await testCloudly.start();
+  await testCloudly.init();
 });
 
 tap.test('should have a default szCluster assigned', async () => {

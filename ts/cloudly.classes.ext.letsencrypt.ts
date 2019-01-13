@@ -28,14 +28,20 @@ export class CloudlyLetsEncrypt {
   
 
   public async getCertificateForDomain (domainName: string) {
-    await this.smartacme.getCertificateForDomain(domainName);
-  };
+    return await this.smartacme.getCertificateForDomain(domainName);
+  }
 
   /**
    * inits letsencrypt
    */
   public async init () {
     await this.smartacme.init();
-    await this.getCertificateForDomain(this.cloudlyRef.config.publicUrl);
+  }
+
+  /**
+   * stops the instance
+   */
+  public async stop () {
+    await this.smartacme.stop();
   }
 }

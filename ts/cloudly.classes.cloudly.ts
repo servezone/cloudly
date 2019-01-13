@@ -49,6 +49,7 @@ export class Cloudly {
 
     // services
     this.cloudflare = new CloudlyCloudflare(this);
+    this.digitalocean = new CloudlyDigitalOcean(this);
     this.letsencrypt = new CloudlyLetsEncrypt(this);
     this.gitlab = new CloudlyGitlab(this);
   }

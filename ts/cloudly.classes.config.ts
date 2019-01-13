@@ -3,6 +3,7 @@ import * as plugins from './cloudly.plugins';
 export interface ICloudlyConfig {
   cfEmail: string;
   cfToken: string;
+  digitalOceanToken: string;
   gitlabUser?: string;
   gitlabToken?: string;
   letsEncryptEmail: string;
@@ -19,6 +20,7 @@ export interface ICloudlyConfig {
 export class CloudlyConfig implements ICloudlyConfig {
   public cfEmail: string;
   public cfToken: string;
+  public digitalOceanToken: string;
   public gitlabUser: string;
   public gitlabToken: string;
   public letsEncryptEmail: string;

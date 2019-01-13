@@ -1,8 +1,9 @@
 // @mojoio scope
 import * as cloudflare from '@mojoio/cloudflare';
-import * as slackme from '@mojoio/slack';
+import * as digitalocean from '@mojoio/digitalocean';
+import * as slack from '@mojoio/slack';
 
-export { cloudflare, slackme };
+export { cloudflare, digitalocean, slack };
 
 // @servezone scope
 import * as servezone from '@servezone/servezone';

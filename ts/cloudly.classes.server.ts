@@ -23,7 +23,12 @@ export class CloudlyServer {
   /**
    * authenticate a request
    */
-  private async authenticateRequest(req, res) {}
+  private async authenticateRequest(req: plugins.smartexpress.Request, res: plugins.smartexpress.Response): Promise<boolean> {
+    // check ip to be one within the lossless organization
+    const ip: string = req.ip;
+    const result = this.cloudlyRef.digitalocean.checkValidIp(ip);
+    return (result);
+  }
 
   // =========
   // LIFECYCLE
@@ -56,9 +61,13 @@ export class CloudlyServer {
     this.smartexpressServer.addRoute(
       '/app',
       new plugins.smartexpress.Handler('POST', async (req, res) => {
-        await this.authenticateRequest(req, res);
-        const requestData = req.body;
-        this.cloudlyRef.szClusterRef.szManager.addApp(requestData);
+        if(await this.authenticateRequest(req, res)) {
+          const requestData = req.body;
+          this.cloudlyRef.szClusterRef.szManager.addApp(requestData);
+        } else {
+          res.status(500);
+          res.send(`Not allowed to perform this operation!`);
+        }
       })
     );
 
@@ -66,7 +75,17 @@ export class CloudlyServer {
     this.smartexpressServer.addRoute(
       '/cert',
       new plugins.smartexpress.Handler('POST', async (req, res) => {
-        await this.authenticateRequest(req, res);
+        if(await this.authenticateRequest(req, res)) {
+          const requestBody = req.body;
+          const cert = await this.cloudlyRef.letsencrypt.getCertificateForDomain(requestBody.domainName);
+          res.status(200);
+          res.send(await cert.createSavableObject());
+          res.end();
+        } else {
+          res.status(500);
+          res.send(`Not allowed to perform this operation!`);
+          res.end();
+        }
       })
     );
 

@@ -21,7 +21,7 @@ tap.test('first test', async () => {
     mongoDescriptor: {
       mongoDbName: testQenv.getEnvVarOnDemand('MONGODB_DATABASE'),
       mongoDbPass: testQenv.getEnvVarOnDemand('MONGODB_PASSWORD'),
-      mongoDbUrl: testQenv.getEnvVarOnDemand('MONGODB_URL'),
+      mongoDbUrl: testQenv.getEnvVarOnDemand('MONGODB_URL')
     }
   });
   expect(testCloudly).to.be.instanceof(cloudly.Cloudly);

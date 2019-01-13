@@ -23,9 +23,7 @@ export class CloudlyServer {
   /**
    * authenticate a request
    */
-  private async authenticateRequest (req, res) {
-
-  };
+  private async authenticateRequest(req, res) {}
 
   // =========
   // LIFECYCLE
@@ -35,7 +33,9 @@ export class CloudlyServer {
    * init the reception instance
    */
   public async init() {
-    const sslCert = await this.cloudlyRef.letsencrypt.getCertificateForDomain(this.cloudlyRef.config.publicUrl);
+    const sslCert = await this.cloudlyRef.letsencrypt.getCertificateForDomain(
+      this.cloudlyRef.config.publicUrl
+    );
 
     // server
     this.smartexpressServer = new plugins.smartexpress.Server({
@@ -50,21 +50,26 @@ export class CloudlyServer {
       port: 5000,
       privateKey: sslCert.privateKey,
       publicKey: sslCert.publicKey
-  
     });
 
     // approute
-    this.smartexpressServer.addRoute('/app', new plugins.smartexpress.Handler('POST', (req, res) => {
-      const requestData = req.body;
-      this.cloudlyRef.szClusterRef.szManager.addApp(requestData);
-    }));
+    this.smartexpressServer.addRoute(
+      '/app',
+      new plugins.smartexpress.Handler('POST', async (req, res) => {
+        await this.authenticateRequest(req, res);
+        const requestData = req.body;
+        this.cloudlyRef.szClusterRef.szManager.addApp(requestData);
+      })
+    );
 
     // certroute
-    this.smartexpressServer.addRoute('/cert', new plugins.smartexpress.Handler('POST', (req, res) => {
-      
-    }));
+    this.smartexpressServer.addRoute(
+      '/cert',
+      new plugins.smartexpress.Handler('POST', async (req, res) => {
+        await this.authenticateRequest(req, res);
+      })
+    );
 
-    
     await this.smartexpressServer.start(process.env.PORT || 5000);
   }
 

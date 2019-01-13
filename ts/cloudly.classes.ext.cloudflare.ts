@@ -2,7 +2,7 @@ import * as plugins from './cloudly.plugins';
 import { Cloudly } from './cloudly.classes.cloudly';
 
 /**
- * the portion of Cloudflare responsible 
+ * the portion of Cloudflare responsible
  */
 export class CloudlyCloudflare {
   private cloudlyRef: Cloudly;

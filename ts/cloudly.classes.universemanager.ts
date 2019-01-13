@@ -4,6 +4,4 @@
 
 import * as plugins from './cloudly.plugins';
 
-export class CloudlyUniversemanager {
-  
-}
+export class CloudlyUniversemanager {}

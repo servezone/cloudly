@@ -11,7 +11,11 @@ export class CloudlyLetsEncrypt {
       accountEmail: this.cloudlyRef.config.letsEncryptEmail,
       accountPrivateKey: this.cloudlyRef.config.letsEncryptPrivateKey,
       setChallenge: async (dnsDomainName: string, keyAuthorization: string) => {
-        await this.cloudlyRef.cloudflare.cloudflare.createRecord(dnsDomainName, 'TXT', keyAuthorization);
+        await this.cloudlyRef.cloudflare.cloudflare.createRecord(
+          dnsDomainName,
+          'TXT',
+          keyAuthorization
+        );
         console.log('Cool down for 20 seconds');
         await plugins.smartdelay.delayFor(20000);
         console.log(`successfully set domain name`);
@@ -21,27 +25,25 @@ export class CloudlyLetsEncrypt {
         console.log('successfully removed dnsDomainName');
       },
       mongoDescriptor: this.cloudlyRef.config.mongoDescriptor,
-      validateRemoteRequest: async () => true,
+      validateRemoteRequest: async () => true
     });
   }
 
-  
-
-  public async getCertificateForDomain (domainName: string) {
+  public async getCertificateForDomain(domainName: string) {
     return await this.smartacme.getCertificateForDomain(domainName);
   }
 
   /**
    * inits letsencrypt
    */
-  public async init () {
+  public async init() {
     await this.smartacme.init();
   }
 
   /**
    * stops the instance
    */
-  public async stop () {
+  public async stop() {
     await this.smartacme.stop();
   }
 }

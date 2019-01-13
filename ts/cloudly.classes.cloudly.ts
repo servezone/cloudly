@@ -19,7 +19,7 @@ import { CloudlyLetsEncrypt } from './cloudly.classes.ext.letsencrypt';
 /**
  * Cloudly class can be used to instantiate a cloudly server.
  * It is implemented as class in order to make it easier ro write node services that are more adjusted to invidual services
- * 
+ *
  * ```ts
  * const mycloudly = new Cloudly ({...})
  * ```
@@ -39,7 +39,7 @@ export class Cloudly {
   public gitlab: CloudlyGitlab;
   public letsencrypt: CloudlyLetsEncrypt;
 
-  private readyDeferred = new plugins.smartq.Deferred();
+  private readyDeferred = new plugins.smartpromise.Deferred();
 
   constructor(cloudlyConfigArg: ICloudlyConfig) {
     this.config = new CloudlyConfig(cloudlyConfigArg);
@@ -74,7 +74,7 @@ export class Cloudly {
   }
 
   /**
-   * 
+   *
    */
   private async initServeZone() {
     this.szClusterRef = new plugins.servezone.SzCluster();

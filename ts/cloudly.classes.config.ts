@@ -4,6 +4,7 @@ export interface ICloudlyConfig {
   cfEmail: string;
   cfToken: string;
   digitalOceanToken: string;
+  environment: 'production' | 'integration';
   gitlabUser?: string;
   gitlabToken?: string;
   letsEncryptEmail: string;
@@ -22,6 +23,7 @@ export class CloudlyConfig implements ICloudlyConfig {
   public cfEmail: string;
   public cfToken: string;
   public digitalOceanToken: string;
+  public environment: 'production' | 'integration';
   public gitlabUser: string;
   public gitlabToken: string;
   public letsEncryptEmail: string;

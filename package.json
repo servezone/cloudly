@@ -30,7 +30,7 @@
     "@pushrocks/smartcli": "^3.0.7",
     "@pushrocks/smartdata": "^3.1.13",
     "@pushrocks/smartdelay": "^2.0.2",
-    "@pushrocks/smartexpress": "^3.0.4",
+    "@pushrocks/smartexpress": "^3.0.5",
     "@pushrocks/smartlog": "^2.0.9",
     "@pushrocks/smartpromise": "^2.0.5",
     "@pushrocks/smartrequest": "^1.1.14",

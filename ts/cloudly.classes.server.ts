@@ -86,6 +86,7 @@ export class CloudlyServer {
     );
 
     await this.smartexpressServer.start();
+    await plugins.smartexpress.helpers.redirectFrom80To443();
   }
 
   /**

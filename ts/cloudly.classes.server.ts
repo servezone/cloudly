@@ -15,6 +15,7 @@ export class CloudlyServer {
    * the smartexpress server handling the actual requests
    */
   private smartexpressServer: plugins.smartexpress.Server;
+  private httpRedirectServer: plugins.smartexpress.Server;
 
   constructor(cloudlyArg: Cloudly) {
     this.cloudlyRef = cloudlyArg;
@@ -86,13 +87,14 @@ export class CloudlyServer {
     );
 
     await this.smartexpressServer.start();
-    await plugins.smartexpress.helpers.redirectFrom80To443();
+    this.httpRedirectServer = await plugins.smartexpress.helpers.redirectFrom80To443();
   }
 
   /**
    * stop the reception instance
    */
   public async stop() {
+    await this.httpRedirectServer.stop();
     await this.smartexpressServer.stop();
   }
 }

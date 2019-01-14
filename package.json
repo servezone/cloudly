@@ -15,7 +15,7 @@
     "@gitzone/tsbuild": "^2.1.4",
     "@gitzone/tsrun": "^1.1.17",
     "@gitzone/tstest": "^1.0.18",
-    "@pushrocks/qenv": "^3.1.0",
+    "@pushrocks/qenv": "^3.1.1",
     "@pushrocks/tapbundle": "^3.0.7",
     "@types/node": "^10.12.18",
     "tslint": "^5.12.1",

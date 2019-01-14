@@ -76,11 +76,7 @@ export class CloudlyServer {
       '/cert',
       new plugins.smartexpress.Handler('POST', async (req, res) => {
         if(await this.authenticateRequest(req, res)) {
-          const requestBody = req.body;
-          const cert = await this.cloudlyRef.letsencrypt.getCertificateForDomain(requestBody.domainName);
-          res.status(200);
-          res.send(await cert.createSavableObject());
-          res.end();
+          await this.cloudlyRef.letsencrypt.remoteClientHandler(req, res);
         } else {
           res.status(500);
           res.send(`Not allowed to perform this operation!`);

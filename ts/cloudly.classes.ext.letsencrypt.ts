@@ -4,6 +4,7 @@ import { Cloudly } from './cloudly.classes.cloudly';
 export class CloudlyLetsEncrypt {
   private cloudlyRef: Cloudly;
   private smartacme: plugins.smartacme.SmartAcme;
+  public remoteClientHandler: (req, res) => Promise<any>;
 
   constructor(cloudlyArg: Cloudly) {
     this.cloudlyRef = cloudlyArg;
@@ -25,9 +26,9 @@ export class CloudlyLetsEncrypt {
         await this.cloudlyRef.cloudflare.cloudflare.removeRecord(dnsDomainName, 'TXT');
         console.log('successfully removed dnsDomainName');
       },
-      mongoDescriptor: this.cloudlyRef.config.mongoDescriptor,
-      validateRemoteRequest: async () => true
+      mongoDescriptor: this.cloudlyRef.config.mongoDescriptor
     });
+    this.remoteClientHandler = this.smartacme.certremoteHandler;
   }
 
   public async getCertificateForDomain(domainName: string) {

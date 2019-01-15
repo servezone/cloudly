@@ -77,6 +77,7 @@ export class CloudlyServer {
       '/cert',
       new plugins.smartexpress.Handler('POST', async (req, res) => {
         if(await this.authenticateRequest(req, res)) {
+          this.cloudlyRef.logger.log('info', 'got cert request');
           await this.cloudlyRef.letsencrypt.remoteClientHandler(req, res);
         } else {
           res.status(500);

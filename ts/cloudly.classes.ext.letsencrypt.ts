@@ -12,6 +12,7 @@ export class CloudlyLetsEncrypt {
       accountEmail: this.cloudlyRef.config.letsEncryptEmail,
       accountPrivateKey: this.cloudlyRef.config.letsEncryptPrivateKey,
       environment: this.cloudlyRef.config.environment,
+      logger: this.cloudlyRef.logger,
       setChallenge: async (dnsDomainName: string, keyAuthorization: string) => {
         await this.cloudlyRef.cloudflare.cloudflare.createRecord(
           dnsDomainName,

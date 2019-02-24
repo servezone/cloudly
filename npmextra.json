@@ -3,5 +3,15 @@
     "npmGlobalTools": [],
     "npmAccessLevel": "public",
     "npmRegistryUrl": "registry.npmjs.org"
+  },
+  "gitzone": {
+    "module": {
+      "githost": "gitlab.com",
+      "gitscope": "servezone",
+      "gitrepo": "cloudly",
+      "shortDescription": "container cloud manager",
+      "npmPackagename": "@servezone/cloudly",
+      "license": "MIT"
+    }
   }
 }

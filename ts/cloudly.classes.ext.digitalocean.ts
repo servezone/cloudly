@@ -7,7 +7,9 @@ export class CloudlyDigitalOcean {
 
   constructor(cloudlyRefArg: Cloudly) {
     this.cloudlyRef = cloudlyRefArg;
-    this.digitalocean = new plugins.digitalocean.DigitalOceanAccount(this.cloudlyRef.config.digitalOceanToken);
+    this.digitalocean = new plugins.digitalocean.DigitalOceanAccount(
+      this.cloudlyRef.config.digitalOceanToken
+    );
   }
 
   public checkValidIp(ipArg: string): boolean {

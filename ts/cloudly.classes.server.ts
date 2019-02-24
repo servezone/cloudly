@@ -24,11 +24,14 @@ export class CloudlyServer {
   /**
    * authenticate a request
    */
-  private async authenticateRequest(req: plugins.smartexpress.Request, res: plugins.smartexpress.Response): Promise<boolean> {
+  private async authenticateRequest(
+    req: plugins.smartexpress.Request,
+    res: plugins.smartexpress.Response
+  ): Promise<boolean> {
     // check ip to be one within the lossless organization
     const ip: string = req.ip;
     const result = this.cloudlyRef.digitalocean.checkValidIp(ip);
-    return (result);
+    return result;
   }
 
   // =========
@@ -62,7 +65,7 @@ export class CloudlyServer {
     this.smartexpressServer.addRoute(
       '/app',
       new plugins.smartexpress.Handler('POST', async (req, res) => {
-        if(await this.authenticateRequest(req, res)) {
+        if (await this.authenticateRequest(req, res)) {
           const requestData = req.body;
           this.cloudlyRef.szClusterRef.szManager.addApp(requestData);
         } else {
@@ -76,7 +79,7 @@ export class CloudlyServer {
     this.smartexpressServer.addRoute(
       '/cert',
       new plugins.smartexpress.Handler('POST', async (req, res) => {
-        if(await this.authenticateRequest(req, res)) {
+        if (await this.authenticateRequest(req, res)) {
           this.cloudlyRef.logger.log('info', 'got cert request');
           await this.cloudlyRef.letsencrypt.remoteClientHandler(req, res);
         } else {
